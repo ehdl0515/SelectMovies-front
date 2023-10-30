@@ -7,7 +7,7 @@ function postUser() {
     var userInputPw = prompt("[2/2] 암호를 입력하세요: ");
 
 
-    fetch("http://211.178.126.231:80/regist", {
+    fetch("http://211.178.126.231/regist", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
