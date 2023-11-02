@@ -1,19 +1,24 @@
+
+// html 객체 선언
 let movie_title = document.getElementById("movie_title");
 
-GetMoviesOneById(19820019)
-    .then(async response => {
-        console.log("반환된 데이터:", response);
-        // let movie_obj = JSON.parse(data);
-        movie_title.textContent = await response.json();
+
+// 로직 실행
+(async () => {
+    const response = await GetMoviesOneById(19820019);
+    console.log("반환된 데이터:", response);
+    if (!response.ok) {
+        throw new Error('Network Connect Fail!!: ' + response.status);
     }
-).catch(error => {
-    console.error("OCCUR ERROR:", error);
-});
+    movie_data = await response.json();
+    console.log("jsonify:", movie_data)
+    console.log("type:", typeof(movie_data))
+    movie_title.textContent = movie_data.movieNm;
+})();
 
 
-
-
-function GetMoviesOneById(movieCd) {
+// 함수 정의
+async function GetMoviesOneById(movieCd) {
 
     // 211.178.126.231
     return fetch("http://127.0.0.1:8080/movies/one", {
@@ -23,13 +28,7 @@ function GetMoviesOneById(movieCd) {
             },
             body: JSON.stringify(movieCd),
         }
-    ).then(response => {
-        if (!response.ok) {
-            throw new Error('Network Connect Fail!!: ' + response.status);
-        }
-        console.log(response.headers)
-    })
-        .catch(error => {
-            console.error("OCCUR ERROR:", error);
-        });
+    )
+
+
 }
