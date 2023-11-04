@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>영화 목록</title>
+    <link rel="stylesheet" href="assets/css/css.css"/>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,17 +26,45 @@
     </style>
 </head>
 <body>
-<h1>모든 영화를 보여줄게!</h1>
-<ul class="movie-list">
-    <li class="movie-item">
-        <h2 id="movie_title"></h2>
-        <p>감독: 감독 이름 1</p>
-        <p>개봉 연도: 2023</p>
-    </li>
-</ul>
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>영화 전체목록</strong>
+            <p>2000년 ~ 2023년까지의 영화 목록입니다.</p>
+        </div>
+        <div class="board_list_wrap">
+            <div id="board_list_main" class="board_list">
+                <div class="top">
+                    <div class="movieCd">영화코드</div>
+                    <div class="movieNm">영화명</div>
+                    <div class="prdtYear">제작연도</div>
+                    <div class="openDt">개봉일</div>
+                    <div class="typeNm">유형</div>
+                    <div class="prdtStatNm">제작상태</div>
+                    <div class="repNationNm">국가</div>
+                    <div class="repGenreNm">장르</div>
+                </div>
+<!--                영화 리스트 페이징-->
+                <script src="assets/js/movies_show.js"></script>
+            </div>
+            <div class="board_page">
+                <a href="#" class="bt first"><<</a>
+                <a href="#" class="bt prev"><</a>
+                <a href="#" class="num on">1</a>
+                <a href="#" class="num">2</a>
+                <a href="#" class="num">3</a>
+                <a href="#" class="num">4</a>
+                <a href="#" class="num">5</a>
+                <a href="#" class="bt next">></a>
+                <a href="#" class="bt last">>></a>
+            </div>
+            <div class="bt_wrap">
+                <a href="#" class="on">목록</a>
+                <!-- <a href="#">수정</a> -->
+            </div>
+        </div>
+    </div>
 
-<script src="assets/js/movies_show.js"></script>
-
-
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 </body>
 </html>
