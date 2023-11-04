@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 10px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.board_wrap {
+    width: 1000px;
+    margin: 100px auto;
+}
+.board_title {
+    margin-bottom: 30px;
+}
+
+.board_title strong {
+    font-size: 3rem;
+}
+
+.board_title p {
+    margin-top: 5px;
+    font-size: 1.4rem;
+}
+
+.bt_wrap {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+}
+
+.bt_wrap a {
+    display: inline-block;
+    min-width: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    font-size: 1.4rem;
+}
+
+.bt_wrap a:first-child {
+    margin-left: 0;
+}
+
+.bt_wrap a.on {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+.board_list {
+    width: 100%;
+    border-top: 2px solid #000000;
+}
+
+.board_list > div {
+    border-bottom: 1px solid #dddddd;
+    font-size: 0;
+}
+
+.board_list >div.top {
+    border-bottom: 1px solid #999999;
+}
+.board_list > div:last-child {
+    border-bottom: 1px solid #000000;
+}
+
+.board_list > div > div {
+    /*가로배치*/
+    display: inline-block;
+    /*모든 픽셀 여백*/
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.4rem;
+}
+.board_list > div.top > div {
+    font-weight: 600;
+}
+
+.board_list .movieCd {
+    width: 10%;
+}
+.board_list .movieNm {
+    width: 30%;
+    text-align: left;
+}
+.board_list .prdtYear {
+    width: 10%;
+}
+.board_list .openDt {
+    width: 10%;
+}
+.board_list .typeNm {
+    width: 10%;
+}
+.board_list .prdtStatNm {
+    width: 10%;
+}
+.board_list .repNationNm {
+    width: 10%;
+}
+.board_list .repGenreNm {
+    width: 10%;
+}
+
+.board_page {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+}
+
+.board_page a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    border-left: 0;
+    line-height: 100%;
+}
+.board_page a.bt {
+    padding-top: 10px;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+}
+
+.board_page a.num {
+    padding-top: 9px;
+    font-size: 1.4rem;
+}
+.board_page a.num.on {
+    border-color: #000000;
+    background: #000000;
+    color: #FFFFFF;
+}
+
+.board_page a:first-child {
+    border-left: 1px solid #dddddd;
+}
