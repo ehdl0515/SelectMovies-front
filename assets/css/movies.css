@@ -118,32 +118,55 @@ a {
     font-size: 0;
 }
 
-.board_page a {
+.board_page div {
     display: inline-block;
-    width: 32px;
+    width: 220px;
     height: 32px;
     box-sizing: border-box;
     vertical-align: middle;
     border: 1px solid #dddddd;
-    border-left: 0;
     line-height: 100%;
 }
-.board_page a.bt {
+.board_page div.bt {
+    width: 50px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+    cursor: pointer;
+
+}
+
+
+.board_page div.bt.disabled-element {
+    pointer-events: none;
+    cursor: default;
+}
+
+.board_page div.number-button-wrapper {
     padding-top: 10px;
     font-size: 1.2rem;
     letter-spacing: -1px;
 }
 
-.board_page a.num {
-    padding-top: 9px;
+.board_page span.number-button {
+    margin: 5px;
+    padding: 3px 5px;
+    /*padding-top: 2px;*/
+    /*padding-bottom: 2px;*/
     font-size: 1.4rem;
+    cursor: pointer;
 }
-.board_page a.num.on {
-    border-color: #000000;
-    background: #000000;
+.board_page span.number-button.active {
+    margin: 5px;
+    padding: 3px 5px;
+    /*padding-top: 2px;*/
+    /*padding-bottom: 2px;*/
+    font-size: 1.4rem;
+    border-color: orange;
+    background: orange;
     color: #FFFFFF;
 }
 
-.board_page a:first-child {
-    border-left: 1px solid #dddddd;
-}
+/*.board_page span:first-child {*/
+/*    border-left: 1px solid #dddddd;*/
+/*}*/
