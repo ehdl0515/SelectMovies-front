@@ -43,19 +43,16 @@
                     <div class="repNationNm">국가</div>
                     <div class="repGenreNm">장르</div>
                 </div>
-<!--                영화 리스트 페이징-->
-                <script src="assets/js/movies_show.js"></script>
             </div>
+            <div id="board_list_content" class="board_list">
+            </div>
+
             <div class="board_page">
-                <a href="#" class="bt first"><<</a>
-                <a href="#" class="bt prev"><</a>
-                <a href="#" class="num on">1</a>
-                <a href="#" class="num">2</a>
-                <a href="#" class="num">3</a>
-                <a href="#" class="num">4</a>
-                <a href="#" class="num">5</a>
-                <a href="#" class="bt next">></a>
-                <a href="#" class="bt last">>></a>
+                <div class="bt prev" id="prev_page">이전</div>
+                <div class="number-button-wrapper">
+                    <script type="module" src="assets/js/page.js"></script>
+                </div>
+                <div class="bt next" id="next_page">다음</div>
             </div>
             <div class="bt_wrap">
                 <a href="#" class="on">목록</a>
@@ -63,8 +60,11 @@
             </div>
         </div>
     </div>
+<!--    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>-->
+<!--    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>-->
+        <script type="module" src="assets/js/movie_api.js"></script>
+        <script type="module" src="assets/js/movies_show.js"></script>
 
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-</body>
+
+    </body>
 </html>
