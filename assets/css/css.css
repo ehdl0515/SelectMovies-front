@@ -1,2 +1,10 @@
 @import url(movies.css);
 @import url(nav.css);
+@import url(homepage.css);
+
+body {
+    font-family: 'Orbit-Regular', Arial, sans-serif;
+}
+h1 {
+    text-align: left;
+}
