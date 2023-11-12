@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'IAMAPLAYER';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/IAMAPLAYER.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes gradientMovement {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header {
+    height: 100px;
+    width: 1000px;
+    /*border-bottom: 1px solid;*/
+    margin: 0 auto;
+    font-family: 'IAMAPLAYER', Arial, sans-serif;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 0;
+}
+
+.section .logo {
+    width: 20%;
+    display: inline-block;
+    height: 100%;
+    font-size: 27px;
+    line-height: 4.0;
+    margin-left: 30px;
+    vertical-align: top;
+
+    background: linear-gradient(to right, #8e37e0, #6184d2);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    background-size: 200% 100%;
+    animation: gradientMovement 5s ease infinite;
+}
+
+
+.section .nav {
+    width: 60%;
+    height: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+.section .nav ul li {
+    font-size: 16px;
+    line-height: 6.2;
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.section .profile {
+    display: inline-block;
+    width: 17%;
+    height: 100%;
+    text-align: right;
+}
+
+.section .profile ul li {
+    font-size: 16px;
+    line-height: 6.2;
+    display: inline-block;
+    margin: 0 0 0 20px;
+    color: #716a65;
+
+}
+
+.nav li {
+    /*display: inline-block;*/
+    /*margin-right: 20px;*/
+    position: relative;
+
+}
+
+.nav li:hover .dropdown {
+    display: block;
+    opacity: 1;
+    animation: fadeInUp 0.3s ease-in-out;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 70%;
+    /*transform: translateX(-50%);*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background-color: rgba(173, 131, 217, 0.18);
+    color: rgb(0, 0, 0);
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    line-height: 3.5;
+    text-align: left;
+
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    /*border-bottom: 1px solid #444;*/
+    white-space: nowrap;
+    line-height: 0.5;
+
+}
