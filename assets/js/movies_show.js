@@ -132,7 +132,8 @@ async function CallFunc(index) {
 
         movies.map(function (movie) {
             let new_html;
-            new_html = `<div id="movieCd" class="movieCd">${movie.movieCd}</div>
+            new_html = `
+<!--<div id="movieCd" class="movieCd">${movie.movieCd}</div>-->
                 <div id="movieNm"  class="movieNm">${movie.movieNm}</div>
                 <div id="prdtYear" class="prdtYear">${movie.prdtYear}</div>
                 <div id="openDt" class="openDt">${movie.openDt}</div>

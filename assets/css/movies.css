@@ -86,11 +86,11 @@ a {
     font-weight: 600;
 }
 
-.board_list .movieCd {
-    width: 10%;
-}
+/*.board_list .movieCd {*/
+/*    width: 10%;*/
+/*}*/
 .board_list .movieNm {
-    width: 30%;
+    width: 40%;
     text-align: left;
 }
 .board_list .prdtYear {
