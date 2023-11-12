@@ -1,0 +1,38 @@
+.image-slider {
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    display: flex; /* 이미지들을 가로로 나란히 배치하기 위해 Flexbox 사용 */
+    transition: transform 0.5s ease-in-out; /* 이미지 이동에 애니메이션 적용 */
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5); /* 약간 투명한 배경색 */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* 호버 시 더 밝은 배경색 */
+}
+
+.arrow-left {
+    left: 10px;
+    transform: translate(0, -50%) rotate(135deg);
+}
+
+.arrow-right {
+    right: 10px;
+    transform: translate(0, -50%) rotate(-45deg);
+}
