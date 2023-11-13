@@ -1,9 +1,4 @@
-@font-face {
-    font-family: 'IAMAPLAYER';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/IAMAPLAYER.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
+@import url(fonts.css);
 
 @keyframes gradientMovement {
     0% {
@@ -30,7 +25,7 @@
     width: 1000px;
     /*border-bottom: 1px solid;*/
     margin: 0 auto;
-    font-family: 'IAMAPLAYER', Arial, sans-serif;
+    font-family: 'JeonjuCraftMjB','JalnanGothic', 'IAMAPLAYER', Arial, sans-serif;
 }
 
 .section {
