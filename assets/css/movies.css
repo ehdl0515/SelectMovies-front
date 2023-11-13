@@ -28,7 +28,7 @@ a {
 }
 
 .board_title p {
-    margin-top: 5px;
+    margin-top: 20px;
     font-size: 1.4rem;
 }
 
@@ -59,7 +59,7 @@ a {
 
 .board_list {
     width: 100%;
-    border-top: 2px solid #000000;
+    border-top: 1px solid #000000;
 }
 
 .board_list > div {
@@ -70,6 +70,11 @@ a {
 .board_list >div.top {
     border-bottom: 1px solid #999999;
 }
+
+.board_list > div.top > div {
+    font-weight: 700;
+}
+
 .board_list > div:last-child {
     border-bottom: 1px solid #000000;
 }
@@ -82,9 +87,7 @@ a {
     text-align: center;
     font-size: 1.4rem;
 }
-.board_list > div.top > div {
-    font-weight: 600;
-}
+
 
 /*.board_list .movieCd {*/
 /*    width: 10%;*/
