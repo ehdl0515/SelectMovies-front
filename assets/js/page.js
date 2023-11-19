@@ -1,23 +1,40 @@
 import {GetMoviesAll} from './movie_api.js';
 
-const DataCntPerPage = 10;
+
+export let requestParams = {
+    prdtYearGoe: null,
+    prdtYearLoe: null,
+    openDtGoe: null,
+    openDtLoe: null,
+    typeNms: null,
+    prdtStatNms: null,
+    repNationNms: null,
+    genreIds: null,
+    page: null,
+    size: null,
+    sortColumn: null,
+    sortDesc: null,
+};
+
+export const DataCntPerPage = 10;
 const showPageCnt = 5;
 
-const totalPage = getTotalPageCount(await GetTotalDataCnt());
+
+const totalPage = getTotalPageCount(await GetTotalDataCnt(requestParams));
 let prevPage = document.getElementById("prev_page");
 let nextPage = document.getElementById("next_page");
 let numberButtonWrapper = document.querySelector('.number-button-wrapper');
 
 
-async function GetTotalDataCnt() {
-    const response = await GetMoviesAll();
+async function GetTotalDataCnt(requestParams) {
+    const response = await GetMoviesAll(requestParams);
     if (!response.ok) {
         throw new Error('Network Connect Fail!!: ' + response.status);
     }
     console.log(response)
     let totalDataCnt = await response.json();
-    console.log("totalDataCnt: ", totalDataCnt)
-    return totalDataCnt;
+    console.log("totalDataCnt: ", totalDataCnt.length)
+    return totalDataCnt.length;
 }
 
 
