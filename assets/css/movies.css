@@ -16,7 +16,9 @@ a {
     color: inherit;
 }
 .board_wrap {
-    width: 1000px;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
     margin: 100px auto;
 }
 .board_title {
@@ -24,10 +26,12 @@ a {
 }
 
 .board_title strong {
+    font-family: 'JeonjuCraftMjB', Arial, sans-serif;
     font-size: 3rem;
 }
 
 .board_title p {
+    font-family: 'JeonjuCraftMjB', Arial, sans-serif;
     margin-top: 20px;
     font-size: 1.4rem;
 }
