@@ -1,0 +1,133 @@
+/* 상위 div 스타일 */
+/*.filter-header {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    width: 800px;*/
+/*    margin: 50px auto 1px auto;*/
+/*}*/
+
+
+/* 상위 div 스타일 */
+.filter-container {
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    margin: 50px auto auto auto;
+
+    /*margin: 0 30px;*/
+    padding: 20px; /* 안쪽 여백 조정 */
+    border: 1px solid #ccc; /* 테두리 추가 */
+    border-radius: 5px; /* 테두리 모서리 둥글게 만들기 */
+    background-color: #f8f8f8; /* 배경색 지정 */
+    font-size: 15px;
+}
+
+/*.filter-title {*/
+/*    margin-right: 10px;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+.filter-label {
+    display: inline-block; /* 같은 라인에 표시되도록 설정 */
+    margin-top: 10px;
+    margin-right: 20px;
+    /*margin-left: 10px; !* 여기에 마진 추가 *!*/
+    /*padding: 2px 20px;*/
+    line-height: 15px;
+
+    text-align: center;
+    border: 1px solid #ccc; /* 테두리 추가 */
+    border-radius: 5px; /* 테두리 모서리 둥글게 만들기 */
+    background-color: #ffffff; /* 배경색 지정 */
+    font-weight: bolder;
+
+}
+
+.filter-content.label {
+    display: inline-block; /* 같은 라인에 표시되도록 설정 */
+    margin-right: 10px;
+    margin-top: 10px;
+    /*margin-left: 10px; !* 여기에 마진 추가 *!*/
+    /*padding: 2px 20px;*/
+    /*line-height: 15px;*/
+    line-height: 10px;
+    text-align: center;
+    border: 1px solid #ccc; /* 테두리 추가 */
+    border-radius: 5px; /* 테두리 모서리 둥글게 만들기 */
+    background-color: #ffffff; /* 배경색 지정 */
+}
+
+.filter-label#filterTypeNms {
+    padding: 3px 25px;
+    background-color: #c4a5e7; /* 배경색 지정 */
+}
+
+.filter-label#filterPrdtStatNms {
+    padding: 3px 11px;
+    background-color: #d591d7; /* 배경색 지정 */
+}
+
+.filter-label#filterRepGenreNms {
+    padding: 30px 25px;
+    margin: 30px 20px 10px 0;
+    background-color: #99e0d4; /* 배경색 지정 */
+
+}
+
+/* 하위 div 스타일 */
+.filter-content {
+    display: inline-block; /* 같은 라인에 표시되도록 설정 */
+    vertical-align: middle;
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+/* 체크박스 스타일 */
+.sortCheckbox {
+    margin-right: 15px; /* 체크박스 간 간격 조정 */
+    /*margin-left: 1px; !* 체크박스 간 간격 조정 *!*/
+    vertical-align: middle; /* 상단 정렬 */
+    width: 18px;
+    height: 18px;
+
+}
+
+.sortCheckboxTypeNms,
+.sortCheckboxPrdtStatNms,
+.sortCheckboxRepGenreNms {
+    margin-right: 15px; /* 체크박스 간 간격 조정 */
+    /*margin-left: 1px; !* 체크박스 간 간격 조정 *!*/
+    vertical-align: middle; /* 상단 정렬 */
+    width: 18px;
+    height: 18px;
+
+}
+
+/* 줄 바꿈 클래스 */
+.line-break {
+    display: block;
+    white-space: pre-line;
+    margin-bottom: 5px;
+}
+
+
+
+.call {
+    display: flex;
+}
+
+
+.refresh {
+    width: 150px;
+    height: 30px;
+    font-weight: bold;
+    margin-left: 75%;
+}
+.execute {
+    width: 150px;
+    height: 30px;
+    font-weight: bold;
+    margin-left: 1%;
+}
