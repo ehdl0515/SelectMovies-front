@@ -14,7 +14,7 @@
     justify-content: center;
     align-items: center;
     width: 65%;
-    margin: 50px auto auto auto;
+    margin: auto auto 20px auto;
 
     /*margin: 0 30px;*/
     padding: 20px; /* 안쪽 여백 조정 */
@@ -24,10 +24,24 @@
     font-size: 15px;
 }
 
-/*.filter-title {*/
-/*    margin-right: 10px;*/
-/*    margin-bottom: 10px;*/
-/*}*/
+.toggleDiv {
+    overflow: hidden;
+    max-height: 0;
+}
+
+.filterToggle button {
+    width: 100px;
+    height: 30px;
+    border: black 2px;
+    border-radius: 5px;
+    line-height: 10px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+}
+
+.filterToggle button:hover {
+    background-color: rgba(222, 35, 69, 0.34); /* 마우스 호버 시 배경색 변경 */
+}
 
 .filter-label {
     display: inline-block; /* 같은 라인에 표시되도록 설정 */

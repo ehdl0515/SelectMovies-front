@@ -49,7 +49,6 @@ const MoviesTypeNm = {
 
 let new_filter_html;
 new_filter_html = `
-        <h2 class="filter-title">검색필터를 적용해보세요!</h2>
         <div>
             <label id="filterTypeNms" class="filter-label">유형</label>
                 <div id="filterTypeNms" class="filter-content">
@@ -159,6 +158,7 @@ filter_container.innerHTML = new_filter_html;
 filter_container.classList.add("filter-container")
 
 let filter = document.getElementById("filter");
+filter.classList.add("toggleDiv")
 filter.appendChild(filter_container);
 
 
@@ -276,6 +276,24 @@ async function handleExecuteFilter(event) {
 
 }
 
+function toggleVisibility() {
+    var filterDiv = document.getElementById("filter");
+    var filterToggle = document.getElementById("filterToggle");
+
+    // 현재 가시성 상태 확인
+    var isVisible = parseInt(window.getComputedStyle(filterDiv).maxHeight, 10) > 0;
+
+    if (isVisible) {
+        filterDiv.style.transition = "max-height 0.3s ease-out";
+        filterDiv.style.maxHeight = "0";
+        filterToggle.textContent = "검색필터 열기";
+    } else {
+        filterDiv.style.transition = "max-height 0.3s ease-in-out";
+        filterDiv.style.maxHeight = filterDiv.scrollHeight + "px";
+        filterToggle.textContent = "검색필터 닫기";
+    }
+}
+
 // 모든 체크박스에 대한 이벤트 리스너 등록
 let filterIds;
 filterIds = [["typeNmAll", ".sortCheckboxTypeNms"], ["PrdtStatNmAll", ".sortCheckboxPrdtStatNms"], ["RepGenreNmsAll", ".sortCheckboxRepGenreNms"]]
@@ -297,5 +315,7 @@ console.log("executeElem: ", executeElem)
 executeElem.addEventListener('click', handleExecuteFilter);
 
 
-
+const filterToggleElem = document.getElementById("filterToggle");
+console.log("filterToggleElem: ", filterToggleElem)
+filterToggleElem.addEventListener('click', toggleVisibility);
 

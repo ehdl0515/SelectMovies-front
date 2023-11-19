@@ -14,15 +14,16 @@
         <script src="assets/js/homepage.js"></script>
     </div>
 
-    <div id="filter">
-        <script type="module" src="assets/js/filter.js"></script>
-    </div>
-
-
     <div class="board_wrap">
         <div class="board_title">
             <strong>All Movies</strong>
             <p>원하는 영화를 보여드려요</p>
+        </div>
+        <div class="filterToggle">
+            <button id="filterToggle">검색필터 열기</button>
+        </div>
+        <div id="filter">
+            <script type="module" src="assets/js/filter.js"></script>
         </div>
         <div class="board_list_wrap">
             <div id="board_list_main" class="board_list">
@@ -41,11 +42,11 @@
             </div>
 
             <div class="board_page">
-                <div class="bt prev" id="prev_page">이전</div>
+                <div class="btnPrev" id="prev_page">이전</div>
                 <div class="number-button-wrapper">
                     <script type="module" src="assets/js/page.js"></script>
                 </div>
-                <div class="bt next" id="next_page">다음</div>
+                <div class="btnNext" id="next_page">다음</div>
             </div>
             <div class="bt_wrap">
                 <a href="#" class="on">목록</a>
