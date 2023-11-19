@@ -22,7 +22,8 @@
 
 .header {
     height: 100px;
-    width: 1000px;
+    /*width: 1000px;*/
+    width: 90%;
     /*border-bottom: 1px solid;*/
     margin: 0 auto;
     font-family: 'JeonjuCraftMjB','JalnanGothic', 'IAMAPLAYER', Arial, sans-serif;
