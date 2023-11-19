@@ -134,14 +134,49 @@ a {
     border: 1px solid #dddddd;
     line-height: 100%;
 }
-.board_page div.bt {
+.board_page div.btnPrev {
+    margin-right: 10px;
+    margin-left: 10px;
     width: 50px;
     padding-top: 10px;
     font-size: 1.2rem;
     letter-spacing: -1px;
     cursor: pointer;
-
+    border-radius: 5px;
+    line-height: 10px;
+    background-color: whitesmoke;
+    transition: background-color 0.3s ease; /* 클릭 효과에 사용될 트랜지션 추가 */
 }
+
+.board_page div.btnPrev:hover,
+.board_page div.btnNext:hover {
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 50px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+    cursor: pointer;
+    border-radius: 5px;
+    line-height: 10px;
+    /*background-color: rgba(222, 35, 69, 0.34);*/
+    background-color: rgba(222, 35, 69, 0.34); /* 마우스 호버 시 배경색 변경 */
+}
+
+.board_page div.btnNext {
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 50px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+    cursor: pointer;
+    border-radius: 5px;
+    line-height: 10px;
+    background-color: whitesmoke;
+    transition: background-color 0.3s ease; /* 클릭 효과에 사용될 트랜지션 추가 */
+}
+
 
 
 .board_page div.bt.disabled-element {
@@ -150,6 +185,8 @@ a {
 }
 
 .board_page div.number-button-wrapper {
+    border-radius: 5px;
+    width: 25rem;
     padding-top: 10px;
     font-size: 1.2rem;
     letter-spacing: -1px;
@@ -160,18 +197,20 @@ a {
     padding: 3px 5px;
     /*padding-top: 2px;*/
     /*padding-bottom: 2px;*/
+    text-align: center;
     font-size: 1.4rem;
     cursor: pointer;
 }
 .board_page span.number-button.active {
+    text-align: center;
     margin: 5px;
     padding: 3px 5px;
     /*padding-top: 2px;*/
     /*padding-bottom: 2px;*/
     font-size: 1.4rem;
-    border-color: orange;
-    background: orange;
-    color: #FFFFFF;
+    /*border-color: orange;*/
+    /*background: orange;*/
+    color: #f31313;
 }
 
 /*.board_page span:first-child {*/
