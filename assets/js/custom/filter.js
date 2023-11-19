@@ -1,5 +1,22 @@
-import {CallFunc, page} from "./movies_show.js";
-import {DataCntPerPage, requestParams} from "./page.js";
+import {UpdateMovieList, GetTotalDataCnt} from "./movies_show.js";
+import {DataCntPerPage, requestParams, getTotalPageCount, setPaging} from "./page.js";
+
+
+
+let new_filter_html;
+let requestObj = {};
+let colNm = ""
+let filterIds;
+
+makeFilterDiv()
+addEventFilterClick()
+addEventFilter()
+
+
+
+
+
+
 
 const MoviesGenre = {
     RepGenreNmsRomance: 1,
@@ -47,8 +64,11 @@ const MoviesTypeNm = {
 }
 
 
-let new_filter_html;
-new_filter_html = `
+/**
+ * 필터기능에 대한 html을 추가한다. TODO. 반복문을 사용하도록 변경필요
+ */
+function makeFilterDiv() {
+    new_filter_html = `
         <div>
             <label id="filterTypeNms" class="filter-label">유형</label>
                 <div id="filterTypeNms" class="filter-content">
@@ -150,25 +170,41 @@ new_filter_html = `
             <button id="refreshBtn" class="refresh">조건 초기화</button>
             <button id="executeBtn" class="execute">조건으로 조회</button>
         </div>
-`
+        `
+
+    let filter_container = document.createElement("div");
+    filter_container.innerHTML = new_filter_html;
+    filter_container.classList.add("filter-container")
+
+    let filter = document.getElementById("filter");
+    filter.classList.add("toggleDiv")
+    filter.appendChild(filter_container);
+}
 
 
-let filter_container = document.createElement("div");
-filter_container.innerHTML = new_filter_html;
-filter_container.classList.add("filter-container")
+/**
+ * 필터 수행버튼에 대한 이벤트를 추가한다.
+ */
+function addEventFilter() {
+    const refreshElem = document.getElementById("refreshBtn");
+    console.log("refreshElem: ", refreshElem)
+    refreshElem.addEventListener('click', handleRefreshFilter);
 
-let filter = document.getElementById("filter");
-filter.classList.add("toggleDiv")
-filter.appendChild(filter_container);
+    const executeElem = document.getElementById("executeBtn");
+    console.log("executeElem: ", executeElem)
+    executeElem.addEventListener('click', handleExecuteFilter);
 
+    const filterToggleElem = document.getElementById("filterToggle");
+    console.log("filterToggleElem: ", filterToggleElem)
+    filterToggleElem.addEventListener('click', toggleVisibility);
+}
 
-let requestObj = {};
-let colNm = ""
-let typeNms = [];
-
-
-
-
+/**
+ * 필터 체크박스에 대한 로직. TODO. 정의값을 API 를 통해 가져오도록 변경필요
+ * @param allId
+ * @param id
+ * @returns {(function(*): void)|*}
+ */
 function handleCheckboxClick(allId, id) {
     return function(event) {
         let indexToRemove;
@@ -239,6 +275,10 @@ function handleCheckboxClick(allId, id) {
     }
 }
 
+/**
+ * 필터 조건 초기화에 대한 로직.
+ * @param event
+ */
 function handleRefreshFilter(event) {
         // 전체 체크박스 선택자
     filterIds.forEach(ids => {
@@ -255,6 +295,11 @@ function handleRefreshFilter(event) {
 
 }
 
+/**
+ * 필터 조건 조회에 대한 로직
+ * @param event
+ * @returns {Promise<void>}
+ */
 async function handleExecuteFilter(event) {
     console.log("[handleExecuteFilter] requestObj: ", requestObj);
 
@@ -266,22 +311,28 @@ async function handleExecuteFilter(event) {
     requestParams.prdtStatNms = requestObj["PrdtStatNms"] !== undefined ? requestObj["PrdtStatNms"] : null;
     requestParams.repNationNms = requestObj["RepNationNms"] !== undefined ? requestObj["RepNationNms"] : null;
     requestParams.genreIds = requestObj["RepGenreNms"] !== undefined ? requestObj["RepGenreNms"] : null;
-    requestParams.page = page;
+    requestParams.page = 0;
     requestParams.size = DataCntPerPage;
     requestParams.sortColumn = null;
     requestParams.sortDesc = null;
-    console.log("requestParams: ", requestParams);
+    console.log("[handleExecuteFilter] requestParams: ", requestParams);
 
-    await CallFunc(requestParams)
-
+    let totalPage = getTotalPageCount(await GetTotalDataCnt(requestParams));
+    await setPaging(totalPage)
+    // page = getFirstPage()
+    await UpdateMovieList(requestParams)
 }
 
+
+/**
+ * 토글에 대한 기능 로직
+ */
 function toggleVisibility() {
-    var filterDiv = document.getElementById("filter");
-    var filterToggle = document.getElementById("filterToggle");
+    let filterDiv = document.getElementById("filter");
+    let filterToggle = document.getElementById("filterToggle");
 
     // 현재 가시성 상태 확인
-    var isVisible = parseInt(window.getComputedStyle(filterDiv).maxHeight, 10) > 0;
+    let isVisible = parseInt(window.getComputedStyle(filterDiv).maxHeight, 10) > 0;
 
     if (isVisible) {
         filterDiv.style.transition = "max-height 0.3s ease-out";
@@ -294,28 +345,20 @@ function toggleVisibility() {
     }
 }
 
-// 모든 체크박스에 대한 이벤트 리스너 등록
-let filterIds;
-filterIds = [["typeNmAll", ".sortCheckboxTypeNms"], ["PrdtStatNmAll", ".sortCheckboxPrdtStatNms"], ["RepGenreNmsAll", ".sortCheckboxRepGenreNms"]]
+/**
+ * 필터 체크박스 클릭에 대한 이벤트를 추가한다.
+ */
+function addEventFilterClick() {
+    filterIds = [["typeNmAll", ".sortCheckboxTypeNms"], ["PrdtStatNmAll", ".sortCheckboxPrdtStatNms"], ["RepGenreNmsAll", ".sortCheckboxRepGenreNms"]]
 
-filterIds.forEach(ids => {
-    const checkboxes = document.querySelectorAll(ids[1]);
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('click', handleCheckboxClick(ids[0], ids[1]));
-    });
-})
-
-const refreshElem = document.getElementById("refreshBtn");
-console.log("refreshElem: ", refreshElem)
-refreshElem.addEventListener('click', handleRefreshFilter);
-
-
-const executeElem = document.getElementById("executeBtn");
-console.log("executeElem: ", executeElem)
-executeElem.addEventListener('click', handleExecuteFilter);
+    filterIds.forEach(ids => {
+        const checkboxes = document.querySelectorAll(ids[1]);
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('click', handleCheckboxClick(ids[0], ids[1]));
+        });
+    })
+}
 
 
-const filterToggleElem = document.getElementById("filterToggle");
-console.log("filterToggleElem: ", filterToggleElem)
-filterToggleElem.addEventListener('click', toggleVisibility);
+
 
