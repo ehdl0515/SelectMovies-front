@@ -177,9 +177,12 @@ a {
     transition: background-color 0.3s ease; /* 클릭 효과에 사용될 트랜지션 추가 */
 }
 
+.board_page div.btnPrev.disabled-element {
+    pointer-events: none;
+    cursor: default;
+}
 
-
-.board_page div.bt.disabled-element {
+.board_page div.btnNext.disabled-element {
     pointer-events: none;
     cursor: default;
 }
